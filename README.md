@@ -1,8 +1,10 @@
 # Cedarline Policy & Coverage Information Architecture
 
-A UX case study focused on **information architecture, taxonomy, navigation, findability, and insurance-content organization** for a fictional insurer.
+A working UX case study focused on **information architecture, taxonomy, navigation, findability, and insurance-content organization** for a fictional insurer.
 
-**Information architecture · Content strategy · Taxonomy · Navigation design · Task flows · Accessibility · Responsive web design · HTML/CSS/JavaScript**
+**Information architecture · Content strategy · Taxonomy · Navigation design · Accessibility · HTML/CSS/JavaScript**
+
+[**Live prototype**](https://joshuaokent-spec.github.io/Cedarline-Policy-Coverage-IA/) · [**Taxonomy & sitemap**](docs/taxonomy-sitemap.md) · [**Validation plan**](docs/validation-plan.md)
 
 > **Cedarline Mutual is fictional.** This is an independent portfolio concept and is not affiliated with any insurer.
 
@@ -11,29 +13,33 @@ A UX case study focused on **information architecture, taxonomy, navigation, fin
 | | |
 | --- | --- |
 | **Role** | UX / Information Architecture designer + front-end prototyper |
-| **Project type** | Rapid IA portfolio concept |
+| **Project type** | Rapid IA concept |
 | **Core problem** | Help people find policies, coverage explanations, and service tasks without requiring insurance vocabulary |
-| **Deliverables** | Content inventory, taxonomy, sitemap, responsive navigation, coverage-page hierarchy, validation plan, coded prototype |
-| **Prototype** | Task-first navigation + plain-language coverage search + sitemap demonstration |
-| **Tools / tech** | HTML, CSS, JavaScript, JSON, GitHub |
+| **Deliverables** | Content inventory, desk research, taxonomy, sitemap, responsive navigation, coverage hierarchy, heuristic evaluation, accessibility review, validation plan |
+| **Prototype** | Task-first navigation + plain-language search + coverage-page example |
+| **Tools / tech** | HTML, CSS, JavaScript, JSON, GitHub Pages |
 
-## Project thesis
+## The problem
 
-Insurance websites often contain dozens of policy types, coverage terms, account tasks, claim resources, billing functions, FAQs, and educational articles.
+Insurance sites mix product shopping, existing-customer tasks, claims help, billing, account tools, coverage terminology, and educational content.
 
-The problem is not simply:
+People often arrive with questions like:
 
-> “Make a cleaner menu.”
+- “Does my policy cover a burst pipe?”
+- “Where do I get my insurance card?”
+- “Do I need renters insurance?”
+- “What protects expensive jewelry?”
+- “How do I check my claim?”
 
-It is:
+The IA challenge is:
 
-> **How should insurance information be organized so people can find the right policy, coverage explanation, or service task without already knowing insurance terminology?**
+> **How should insurance information be organized so people can find the right answer without already knowing which insurance term or organizational department owns it?**
 
 ## Design response
 
-The proposed IA gives users several ways into the same information.
+The proposed structure supports several mental models instead of forcing everyone through a product list.
 
-### Browse by what you want to protect
+### What do you want to protect?
 
 ```text
 Insurance
@@ -43,7 +49,7 @@ Insurance
 └── Business & farm
 ```
 
-### Browse by what you need to do
+### What do you need to do?
 
 ```text
 Manage my policy
@@ -61,97 +67,110 @@ Claims & help
 └── Emergency / storm help
 ```
 
-### Search in plain language
+### What would you say in everyday language?
 
-The prototype maps common-language searches toward formal insurance topics.
+The prototype bridges plain-language searches to formal topics:
 
-Examples:
+- **burst pipe** → homeowners / water damage;
+- **jewelry** → valuables / personal property;
+- **dog bite** → liability;
+- **insurance card** → proof of insurance;
+- **tow** → roadside assistance;
+- **apartment** → renters;
+- **landlord** → rental property.
 
-- **“burst pipe”** → homeowners / water damage
-- **“jewelry”** → valuables / personal property
-- **“dog bite”** → personal liability
-- **“insurance card”** → proof of insurance
-- **“tow”** → roadside assistance
-- **“apartment”** → renters
-- **“landlord”** → rental property
-
-The goal is not to eliminate formal insurance terminology. It is to provide a bridge to it.
+Formal insurance terminology remains available; users simply do not need to know it first.
 
 ## Working prototype
 
-The coded prototype demonstrates:
+The coded prototype includes:
 
-- desktop mega-menu navigation;
+- keyboard-operable desktop mega-menu disclosure;
 - responsive mobile navigation;
 - task-first shortcuts;
-- grouped insurance-product taxonomy;
+- grouped product taxonomy;
 - plain-language content search;
 - synonym mapping;
-- homeowners coverage information hierarchy;
-- breadcrumbs;
-- contextual “specific situation” links;
+- actionable search results;
+- Homeowners coverage-page hierarchy;
+- breadcrumbs and on-page navigation;
+- contextual situation links;
+- visible human-help destination;
 - proposed sitemap;
-- IA validation plan.
+- validation-plan section.
+
+Destinations outside the prototype are explicitly announced as out of scope rather than behaving like broken links.
 
 ## Coverage-page hierarchy
 
-The example Homeowners page is organized around likely user questions underneath the formal policy name:
+The Homeowners example organizes formal coverage concepts underneath question-oriented headings:
 
 1. Your home & attached structures
 2. Your belongings
-3. Liability to others
-4. Living somewhere else after a covered loss
-5. Optional protection
-6. Common situations
+3. If someone says you caused injury or damage
+4. If you cannot stay in your home
+5. Protection you may choose to add
 
-This keeps formal coverage concepts accessible while improving information scent for non-experts.
+This preserves formal terminology while improving information scent for non-experts.
 
 ## Research integrity
 
 This is a rapid portfolio concept rather than a production research engagement.
 
-I **do not claim** completed card-sorting sessions, tree-testing participants, or usability-study findings.
+I **do not claim** completed card sorts, tree-test participants, interview findings, or usability metrics.
 
-Instead, the project documents:
+Instead, the case study includes:
 
-- desk research on public insurance-content patterns;
-- a representative content inventory;
+- [public reference research](docs/reference-research.md);
+- [representative content inventory](docs/content-inventory.md);
 - task-based IA hypotheses;
-- a proposed taxonomy;
-- a proposed sitemap;
-- a validation plan describing how the structure should be tested before production.
+- [proposed taxonomy & sitemap](docs/taxonomy-sitemap.md);
+- [heuristic evaluation](docs/heuristic-evaluation.md);
+- [validation plan](docs/validation-plan.md).
 
-The proposed taxonomy should be treated as a **design hypothesis**, not a tested result.
+The taxonomy is a **design hypothesis to test**, not a proven answer.
 
-## Reference research
+## Iteration evidence
 
-The project is grounded in publicly observable insurance-site patterns such as:
+The [Heuristic Evaluation & Revision Log](docs/heuristic-evaluation.md) documents why the structure changed.
 
-- multiple product lines and policy types;
-- policy/account tasks;
-- claims content;
-- billing and document functions;
-- formal coverage terminology alongside explanatory content.
+Examples include:
 
-See [Reference Research](docs/reference-research.md) for the sourced observations and limitations.
+- separating product browsing from policy-management tasks;
+- adding plain-language search bridges;
+- grouping long product lists;
+- turning search results into usable prototype navigation;
+- fixing the missing agent destination;
+- restoring focus after Escape closes the mega-menu.
 
-## Process artifacts
+## Accessibility
 
-- [Project brief](docs/project-brief.md)
-- [Reference content inventory](docs/content-inventory.md)
-- [Reference research](docs/reference-research.md)
-- [Proposed taxonomy & sitemap](docs/taxonomy-sitemap.md)
-- [IA validation plan](docs/validation-plan.md)
+See [Accessibility Approach](docs/accessibility.md).
 
-## Relationship to the Cedarline portfolio
+Accessibility here is partly structural: meaningful headings, landmarks, information scent, breadcrumbs, task-oriented entry points, keyboard-operable menus, live search status, visible focus, and reduced-motion handling all affect whether people can understand and navigate the IA.
+
+## Validation plan
+
+A production version would combine:
+
+1. open card sorting;
+2. tree testing;
+3. task-based prototype testing;
+4. terminology testing;
+5. keyboard/screen-reader review;
+6. high-zoom/mobile reflow testing.
+
+The structure should change when observed user behavior contradicts the taxonomy.
+
+## Cedarline portfolio
 
 | Project | UX problem |
 | --- | --- |
 | [Project 1 — Claim Reporting](https://github.com/joshuaokent-spec/cedarline-claim-reporting-ux) | How should a customer report a loss? |
 | [Project 2 — Claims Operations](https://github.com/joshuaokent-spec/Cedarline-Claims-Operations-Dashboard) | How should an employee manage the claims work that follows? |
-| **Project 3 — Policy & Coverage IA** | How should customers find insurance and coverage information in the first place? |
+| **Project 3 — Policy & Coverage IA** | How should customers find policy and coverage information in the first place? |
 
-Together, the projects demonstrate **transactional UX, enterprise UX, and information architecture** rather than three variations of the same interface problem.
+Together they demonstrate transactional UX, enterprise UX, and information architecture—not three versions of the same interface problem.
 
 ## Repository structure
 
@@ -162,40 +181,36 @@ Together, the projects demonstrate **transactional UX, enterprise UX, and inform
 ├── app.js
 ├── data/
 │   └── content.json
-└── docs/
-    ├── project-brief.md
-    ├── content-inventory.md
-    ├── reference-research.md
-    ├── taxonomy-sitemap.md
-    └── validation-plan.md
+├── docs/
+│   ├── project-brief.md
+│   ├── content-inventory.md
+│   ├── reference-research.md
+│   ├── taxonomy-sitemap.md
+│   ├── validation-plan.md
+│   ├── heuristic-evaluation.md
+│   └── accessibility.md
+└── .github/
+    └── workflows/
+        └── validate.yml
 ```
 
 ## Run locally
-
-The prototype loads the content index with `fetch()`, so serve the repository instead of opening `index.html` directly.
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open:
+Then open `http://localhost:8000`.
 
-```text
-http://localhost:8000
-```
+## What I would validate next
 
-## Production validation plan
+The highest-risk questions are:
 
-Before treating this structure as production-ready, I would run:
+- whether users naturally separate product shopping from policy-management tasks;
+- whether the four insurance groups match participant mental models;
+- whether “Claims & help” provides sufficient information scent;
+- whether synonym search bridges the right everyday terms;
+- whether people can find high-frequency tasks without search;
+- whether the mega-menu remains understandable with screen readers and high zoom.
 
-1. open card sorting;
-2. tree testing;
-3. task-based usability testing;
-4. terminology testing;
-5. keyboard/mobile navigation review;
-6. screen-reader and high-zoom accessibility evaluation;
-7. iteration based on observed failure patterns.
-
-## Portfolio goal
-
-Project 3 is intentionally less about “beautiful screens” and more about demonstrating the ability to **organize a complicated content ecosystem into something people can understand and navigate**.
+The prototype exists to make those IA hypotheses testable.
