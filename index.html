@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cedarline Mutual fictional insurance information architecture UX portfolio prototype">
+  <title>Cedarline Mutual | Insurance & Coverage</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <a class="brand" href="#" aria-label="Cedarline Mutual home">
+    <span class="brand-mark" aria-hidden="true">CM</span>
+    <span><strong>Cedarline Mutual</strong><small>Insurance made findable</small></span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary">
+    <button class="nav-trigger" data-menu="insurance" aria-expanded="false">Insurance</button>
+    <button class="nav-trigger" data-menu="manage" aria-expanded="false">Manage my policy</button>
+    <button class="nav-trigger" data-menu="claims" aria-expanded="false">Claims & help</button>
+    <button class="nav-trigger" data-menu="learn" aria-expanded="false">Learn</button>
+  </nav>
+
+  <div class="header-actions">
+    <a href="#agent">Find an agent</a>
+    <button class="sign-in" type="button">Sign in</button>
+    <button class="mobile-menu-button" id="mobileMenuButton" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+  </div>
+</header>
+
+<div class="mega-menu" id="megaMenu" hidden></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden></nav>
+
+<main id="main">
+  <section class="hero">
+    <p class="eyebrow">Policy & coverage explorer</p>
+    <h1>Start with what you need—not insurance jargon.</h1>
+    <p class="hero-copy">Browse by what you want to protect, what you need to do, or a plain-language question about coverage.</p>
+
+    <div class="search-panel">
+      <label for="coverageSearch">What are you trying to find?</label>
+      <div class="search-row">
+        <input id="coverageSearch" type="search" placeholder="Try “burst pipe,” “jewelry,” “roadside,” or “renters”">
+        <button id="searchButton" type="button">Search</button>
+      </div>
+      <p class="search-help">Search understands common phrases and maps them to insurance topics.</p>
+      <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="task-section" aria-labelledby="taskHeading">
+    <div class="section-heading">
+      <p class="eyebrow">Common tasks</p>
+      <h2 id="taskHeading">I need to…</h2>
+    </div>
+    <div class="task-grid">
+      <button class="task-card" data-task="coverage"><span>Understand my coverage</span><small>What is covered, limits, deductibles, optional protection</small></button>
+      <button class="task-card" data-task="claim"><span>Report or track a claim</span><small>Start a claim, check status, add documents</small></button>
+      <button class="task-card" data-task="policy"><span>Manage my policy</span><small>Documents, ID cards, billing, vehicles, account</small></button>
+      <button class="task-card" data-task="quote"><span>Explore insurance options</span><small>Compare policy types before contacting an agent</small></button>
+      <button class="task-card" data-task="discount"><span>Find ways to save</span><small>Discounts, bundles, paperless options</small></button>
+      <button class="task-card" data-task="agent"><span>Talk to a person</span><small>Find an independent agent or contact support</small></button>
+    </div>
+  </section>
+
+  <section class="protect-section" aria-labelledby="protectHeading">
+    <div class="section-heading">
+      <p class="eyebrow">Insurance</p>
+      <h2 id="protectHeading">What do you want to protect?</h2>
+      <p>Product names are grouped under familiar real-world categories instead of one long undifferentiated list.</p>
+    </div>
+    <div id="productGroups" class="product-groups"></div>
+  </section>
+
+  <section class="coverage-demo" id="coverageDemo" aria-labelledby="coverageHeading">
+    <div class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="#">Insurance</a><span aria-hidden="true">/</span><a href="#">Home & property</a><span aria-hidden="true">/</span><strong>Homeowners</strong>
+    </div>
+    <div class="coverage-layout">
+      <article>
+        <p class="eyebrow">Homeowners insurance</p>
+        <h2 id="coverageHeading">Understand what your policy protects</h2>
+        <p class="lead">Coverage information is organized around the questions people are likely to ask, while formal policy terms remain available when needed.</p>
+
+        <nav class="anchor-nav" aria-label="On this page">
+          <a href="#home">Your home</a>
+          <a href="#belongings">Your belongings</a>
+          <a href="#liability">Liability</a>
+          <a href="#living">Living elsewhere</a>
+          <a href="#optional">Optional protection</a>
+        </nav>
+
+        <div class="coverage-cards">
+          <section id="home"><h3>Your home & attached structures</h3><p>Dwelling coverage helps repair or rebuild the home after a covered loss. Related structures may be handled separately depending on whether they are attached.</p><a href="#">See dwelling coverage details</a></section>
+          <section id="belongings"><h3>Your belongings</h3><p>Personal property coverage applies to possessions such as furniture, clothing and electronics, subject to policy limits and terms.</p><a href="#">See personal property details</a></section>
+          <section id="liability"><h3>If someone says you caused injury or damage</h3><p>Personal liability can help when you are legally responsible for covered injury or property damage to someone else.</p><a href="#">See liability coverage details</a></section>
+          <section id="living"><h3>If you cannot stay in your home</h3><p>Additional living expense coverage may help with extra costs while a covered loss makes the home temporarily unlivable.</p><a href="#">See temporary living expense details</a></section>
+          <section id="optional"><h3>Protection you may choose to add</h3><p>Optional endorsements can address needs such as valuables, equipment breakdown, identity recovery, cyber risks or certain water exposures.</p><a href="#">Explore optional coverage</a></section>
+        </div>
+      </article>
+
+      <aside class="coverage-aside">
+        <div class="aside-card">
+          <h3>Looking for a specific situation?</h3>
+          <button class="scenario-link" data-query="burst pipe">A pipe bursts</button>
+          <button class="scenario-link" data-query="jewelry">Expensive jewelry is stolen</button>
+          <button class="scenario-link" data-query="basement flood">Water enters my basement</button>
+          <button class="scenario-link" data-query="dog bite">My dog injures someone</button>
+        </div>
+        <div class="aside-card note">
+          <h3>Coverage depends on your policy</h3>
+          <p>This prototype explains general concepts. Actual coverage is determined by policy terms, limits, exclusions and endorsements.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sitemap-section" aria-labelledby="sitemapHeading">
+    <div class="section-heading">
+      <p class="eyebrow">Proposed IA</p>
+      <h2 id="sitemapHeading">A task-aware sitemap</h2>
+      <p>The structure separates insurance products from service tasks, claim help and educational content so users do not need to guess which organizational bucket contains an answer.</p>
+    </div>
+    <div id="sitemap" class="sitemap"></div>
+  </section>
+
+  <section class="validation" aria-labelledby="validationHeading">
+    <p class="eyebrow">Validation plan</p>
+    <h2 id="validationHeading">How this IA would be tested</h2>
+    <div class="validation-grid">
+      <article><strong>Open card sort</strong><p>Learn how participants naturally group insurance products and service topics.</p></article>
+      <article><strong>Tree test</strong><p>Measure whether people can find target information in the proposed hierarchy without visual design cues.</p></article>
+      <article><strong>Task usability</strong><p>Test real scenarios such as “find what may cover water damage” or “download proof of insurance.”</p></article>
+      <article><strong>Accessibility review</strong><p>Validate keyboard navigation, headings, landmarks, menu behavior and mobile information scent.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Cedarline Mutual is fictional.</strong>
+  <span>This site is a UX information-architecture portfolio prototype.</span>
+</footer>
+</body>
+</html>
