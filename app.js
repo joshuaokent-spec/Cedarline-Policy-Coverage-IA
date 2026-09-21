@@ -40,16 +40,36 @@ const sitemap = {
 };
 
 let content = [];
+let lastMenuTrigger = null;
+
+const status = document.querySelector('#prototypeStatus');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function announce(message){
+  status.textContent='';
+  window.setTimeout(()=>{status.textContent=message},20);
+}
+
+function scrollToNode(node){
+  node?.scrollIntoView({behavior:reducedMotion.matches?'auto':'smooth',block:'center'});
+}
+
+function prototypeDestination(label){
+  announce(label + ' is represented in the information architecture but its destination page is outside this prototype scope.');
+}
 
 function buildMenu(key){
   return '<div class="mega-grid">' + menus[key].map(([title,items]) =>
-    '<section class="mega-group"><h3>'+title+'</h3>'+items.map(item=>'<a href="#">'+item+'</a>').join('')+'</section>'
+    '<section class="mega-group"><h3>'+title+'</h3>'+items.map(item=>'<a href="#" data-prototype-link>'+item+'</a>').join('')+'</section>'
   ).join('') + '</div>';
 }
 
-function closeMenus(){
+function closeMenus(restoreFocus=false){
   document.querySelectorAll('.nav-trigger').forEach(btn=>btn.setAttribute('aria-expanded','false'));
-  const mega=document.querySelector('#megaMenu'); mega.hidden=true; mega.innerHTML='';
+  const mega=document.querySelector('#megaMenu');
+  mega.hidden=true;
+  mega.innerHTML='';
+  if(restoreFocus && lastMenuTrigger) lastMenuTrigger.focus();
 }
 
 document.querySelectorAll('.nav-trigger').forEach(button=>{
@@ -58,6 +78,7 @@ document.querySelectorAll('.nav-trigger').forEach(button=>{
     const open=button.getAttribute('aria-expanded')==='true';
     closeMenus();
     if(!open){
+      lastMenuTrigger=button;
       button.setAttribute('aria-expanded','true');
       mega.innerHTML=buildMenu(button.dataset.menu);
       mega.hidden=false;
@@ -65,16 +86,29 @@ document.querySelectorAll('.nav-trigger').forEach(button=>{
   });
 });
 
-document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenus()});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    closeMenus(true);
+    const mobileButton=document.querySelector('#mobileMenuButton');
+    const mobileMenu=document.querySelector('#mobileMenu');
+    if(mobileButton.getAttribute('aria-expanded')==='true'){
+      mobileButton.setAttribute('aria-expanded','false');
+      mobileMenu.hidden=true;
+      mobileButton.focus();
+    }
+  }
+});
 
 document.querySelector('#productGroups').replaceChildren(...productGroups.map(group=>{
-  const article=document.createElement('article'); article.className='product-group';
-  article.innerHTML='<h3>'+group.title+'</h3><p>'+group.description+'</p>'+group.items.map(item=>'<a href="#">'+item+'</a>').join('');
+  const article=document.createElement('article');
+  article.className='product-group';
+  article.innerHTML='<h3>'+group.title+'</h3><p>'+group.description+'</p>'+group.items.map(item=>'<a href="#" data-prototype-link>'+item+'</a>').join('');
   return article;
 }));
 
 document.querySelector('#sitemap').replaceChildren(...Object.entries(sitemap).map(([title,items])=>{
-  const article=document.createElement('article'); article.className='sitemap-column';
+  const article=document.createElement('article');
+  article.className='sitemap-column';
   article.innerHTML='<h3>'+title+'</h3><ul>'+items.map(item=>'<li>'+item+'</li>').join('')+'</ul>';
   return article;
 }));
@@ -113,23 +147,54 @@ function runSearch(query){
   const output=document.querySelector('#searchResults');
   if(!query.trim()){output.innerHTML='';return}
   const ranked=content.map(item=>({item,score:score(item,query)})).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,5);
-  if(!ranked.length){output.innerHTML='<p class="no-results">No close match. Try a policy type, a service task, or a plain-language situation.</p>';return}
+  if(!ranked.length){
+    output.innerHTML='<p class="no-results">No close match. Try a policy type, a service task, or a plain-language situation.</p>';
+    announce('No close search matches found.');
+    return;
+  }
   output.replaceChildren(...ranked.map(({item})=>{
-    const div=document.createElement('div');div.className='search-result';
-    div.innerHTML='<strong>'+item.title+'</strong><span>'+item.group+' · '+item.description+'</span>';
-    return div;
+    const button=document.createElement('button');
+    button.className='search-result';
+    button.type='button';
+    button.dataset.title=item.title;
+    button.innerHTML='<strong>'+item.title+'</strong><span>'+item.group+' · '+item.description+'</span>';
+    return button;
   }));
+  announce(ranked.length + ' search results available.');
 }
+
+document.querySelector('#searchResults').addEventListener('click',event=>{
+  const button=event.target.closest('.search-result');
+  if(!button) return;
+  if(button.dataset.title.toLowerCase().includes('homeowners')){
+    scrollToNode(document.querySelector('#coverageDemo'));
+    announce('Opened the Homeowners coverage example.');
+  }else{
+    prototypeDestination(button.dataset.title);
+  }
+});
 
 document.querySelector('#searchButton').addEventListener('click',()=>runSearch(document.querySelector('#coverageSearch').value));
 document.querySelector('#coverageSearch').addEventListener('keydown',e=>{if(e.key==='Enter')runSearch(e.currentTarget.value)});
+
 document.querySelectorAll('.scenario-link').forEach(button=>button.addEventListener('click',()=>{
-  const input=document.querySelector('#coverageSearch');input.value=button.dataset.query;runSearch(button.dataset.query);input.scrollIntoView({behavior:'smooth',block:'center'});
+  const input=document.querySelector('#coverageSearch');
+  input.value=button.dataset.query;
+  runSearch(button.dataset.query);
+  scrollToNode(input);
 }));
 
 document.querySelectorAll('[data-task]').forEach(button=>button.addEventListener('click',()=>{
-  const taskQueries={coverage:'coverage',claim:'claim',policy:'policy documents',quote:'insurance',discount:'discount',agent:'agent'};
-  const input=document.querySelector('#coverageSearch');input.value=taskQueries[button.dataset.task];runSearch(input.value);input.scrollIntoView({behavior:'smooth',block:'center'});
+  if(button.dataset.task==='agent'){
+    scrollToNode(document.querySelector('#agent'));
+    announce('Opened the human-help destination.');
+    return;
+  }
+  const taskQueries={coverage:'coverage',claim:'claim',policy:'policy documents',quote:'insurance',discount:'discount'};
+  const input=document.querySelector('#coverageSearch');
+  input.value=taskQueries[button.dataset.task];
+  runSearch(input.value);
+  scrollToNode(input);
 }));
 
 const mobileButton=document.querySelector('#mobileMenuButton');
@@ -139,8 +204,27 @@ mobileButton.addEventListener('click',()=>{
   mobileButton.setAttribute('aria-expanded',String(!open));
   mobileMenu.hidden=open;
   if(!open){
-    mobileMenu.innerHTML=Object.entries(menus).map(([key,groups])=>'<section><h3>'+key.replace(/^./,c=>c.toUpperCase())+'</h3>'+groups.flatMap(g=>g[1]).slice(0,8).map(i=>'<a href="#">'+i+'</a>').join('')+'</section>').join('');
+    mobileMenu.innerHTML=Object.entries(menus).map(([key,groups])=>'<section><h3>'+key.replace(/^./,c=>c.toUpperCase())+'</h3>'+groups.flatMap(g=>g[1]).slice(0,8).map(i=>'<a href="#" data-prototype-link>'+i+'</a>').join('')+'</section>').join('');
   }
 });
 
-fetch('data/content.json').then(r=>r.json()).then(data=>{content=data}).catch(()=>{content=[]});
+document.addEventListener('click',event=>{
+  const link=event.target.closest('[data-prototype-link]');
+  if(!link) return;
+  event.preventDefault();
+  prototypeDestination(link.textContent.trim());
+});
+
+document.querySelector('.sign-in').addEventListener('click',()=>prototypeDestination('Sign in'));
+document.querySelector('[data-prototype-action="agent"]').addEventListener('click',()=>prototypeDestination('Agent locator'));
+
+fetch('data/content.json')
+  .then(response=>{
+    if(!response.ok) throw new Error('Content index unavailable');
+    return response.json();
+  })
+  .then(data=>{content=data})
+  .catch(()=>{
+    content=[];
+    announce('The content index could not be loaded.');
+  });
