@@ -1,0 +1,33 @@
+name: Validate prototype
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check JavaScript syntax
+        run: node --check app.js
+      - name: Validate JSON and HTML structure
+        run: |
+          python - <<'PY'
+          import json
+          from html.parser import HTMLParser
+          data=json.load(open("data/content.json",encoding="utf-8"))
+          assert len(data) > 20, "Content index unexpectedly small"
+          class P(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.ids=[]; self.hrefs=[]
+              def handle_starttag(self, tag, attrs):
+                  d=dict(attrs)
+                  if "id" in d: self.ids.append(d["id"])
+                  if d.get("href","").startswith("#") and len(d["href"])>1: self.hrefs.append(d["href"][1:])
+          p=P(); p.feed(open("index.html",encoding="utf-8").read())
+          assert len(p.ids)==len(set(p.ids)), "Duplicate HTML ids found"
+          assert not (set(p.hrefs)-set(p.ids)), "Broken same-page anchors found"
+          print("validation ok")
+          PY
