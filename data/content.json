@@ -1,0 +1,339 @@
+[
+  {
+    "title": "Auto insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Policy options for cars and personal vehicles.",
+    "keywords": [
+      "car",
+      "vehicle",
+      "collision",
+      "comprehensive",
+      "liability"
+    ]
+  },
+  {
+    "title": "Auto coverage guide",
+    "group": "Learn / Coverage guides",
+    "description": "Understand liability, collision, comprehensive and optional auto protection.",
+    "keywords": [
+      "rental reimbursement",
+      "uninsured motorist",
+      "deductible"
+    ]
+  },
+  {
+    "title": "Motorcycle insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Coverage for motorcycles and scooters.",
+    "keywords": [
+      "bike"
+    ]
+  },
+  {
+    "title": "RV & motorhome insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Coverage for recreational vehicles and motorhomes.",
+    "keywords": [
+      "camper"
+    ]
+  },
+  {
+    "title": "Boat insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Coverage for boats and related equipment.",
+    "keywords": [
+      "watercraft"
+    ]
+  },
+  {
+    "title": "ATV & off-road insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Protection for off-road recreational vehicles.",
+    "keywords": [
+      "atv",
+      "utv"
+    ]
+  },
+  {
+    "title": "Trailer insurance",
+    "group": "Insurance / Vehicles",
+    "description": "Coverage options for personal trailers.",
+    "keywords": [
+      "utility trailer"
+    ]
+  },
+  {
+    "title": "Homeowners insurance",
+    "group": "Insurance / Home & property",
+    "description": "Coverage for your home, belongings and personal liability.",
+    "keywords": [
+      "house",
+      "dwelling",
+      "personal property",
+      "liability",
+      "additional living expense",
+      "water damage"
+    ]
+  },
+  {
+    "title": "Homeowners coverage guide",
+    "group": "Learn / Coverage guides",
+    "description": "Plain-language explanation of core homeowners coverages.",
+    "keywords": [
+      "dwelling",
+      "other structures",
+      "personal property",
+      "personal liability",
+      "living expenses",
+      "dog bite",
+      "burst pipe"
+    ]
+  },
+  {
+    "title": "Renters insurance",
+    "group": "Insurance / Home & property",
+    "description": "Protection for belongings and liability when renting.",
+    "keywords": [
+      "apartment",
+      "tenant",
+      "personal property"
+    ]
+  },
+  {
+    "title": "Condo insurance",
+    "group": "Insurance / Home & property",
+    "description": "Coverage designed for condominium owners.",
+    "keywords": [
+      "unit owner"
+    ]
+  },
+  {
+    "title": "Rental property insurance",
+    "group": "Insurance / Home & property",
+    "description": "Protection for a dwelling you rent to others.",
+    "keywords": [
+      "landlord",
+      "rental dwelling"
+    ]
+  },
+  {
+    "title": "Mobile home insurance",
+    "group": "Insurance / Home & property",
+    "description": "Coverage for manufactured and mobile homes.",
+    "keywords": [
+      "manufactured home"
+    ]
+  },
+  {
+    "title": "Flood insurance",
+    "group": "Insurance / Home & property",
+    "description": "Information about flood-specific protection.",
+    "keywords": [
+      "basement flood",
+      "rising water"
+    ]
+  },
+  {
+    "title": "Valuables coverage",
+    "group": "Insurance / Home & property",
+    "description": "Additional protection for high-value personal property.",
+    "keywords": [
+      "jewelry",
+      "ring",
+      "watch",
+      "art",
+      "collectibles"
+    ]
+  },
+  {
+    "title": "Personal umbrella",
+    "group": "Insurance / Family & future",
+    "description": "Additional liability protection above eligible underlying policies.",
+    "keywords": [
+      "lawsuit",
+      "liability",
+      "large limits"
+    ]
+  },
+  {
+    "title": "Life insurance",
+    "group": "Insurance / Family & future",
+    "description": "Coverage options designed to provide financial protection for beneficiaries.",
+    "keywords": [
+      "term life",
+      "whole life",
+      "universal life"
+    ]
+  },
+  {
+    "title": "Disability income",
+    "group": "Insurance / Family & future",
+    "description": "Income protection information.",
+    "keywords": [
+      "disability"
+    ]
+  },
+  {
+    "title": "Annuities",
+    "group": "Insurance / Family & future",
+    "description": "Long-term financial and retirement income products.",
+    "keywords": [
+      "retirement"
+    ]
+  },
+  {
+    "title": "Business insurance",
+    "group": "Insurance / Business & farm",
+    "description": "Coverage for business property, liability and operations.",
+    "keywords": [
+      "commercial"
+    ]
+  },
+  {
+    "title": "Commercial auto",
+    "group": "Insurance / Business & farm",
+    "description": "Vehicle protection for business use.",
+    "keywords": [
+      "fleet",
+      "business vehicle"
+    ]
+  },
+  {
+    "title": "Workers compensation",
+    "group": "Insurance / Business & farm",
+    "description": "Coverage related to employee workplace injury.",
+    "keywords": [
+      "work injury"
+    ]
+  },
+  {
+    "title": "Farm insurance",
+    "group": "Insurance / Business & farm",
+    "description": "Protection for farms, property and agricultural operations.",
+    "keywords": [
+      "agriculture"
+    ]
+  },
+  {
+    "title": "Report a claim",
+    "group": "Claims & help",
+    "description": "Start a new insurance claim.",
+    "keywords": [
+      "accident",
+      "damage",
+      "loss"
+    ]
+  },
+  {
+    "title": "Track a claim",
+    "group": "Claims & help",
+    "description": "Check status and claim representative information.",
+    "keywords": [
+      "claim status",
+      "open claim"
+    ]
+  },
+  {
+    "title": "Upload claim documents",
+    "group": "Claims & help",
+    "description": "Add photos and supporting files to a current claim.",
+    "keywords": [
+      "photos",
+      "documents",
+      "evidence"
+    ]
+  },
+  {
+    "title": "What happens after a claim",
+    "group": "Claims & help",
+    "description": "Understand inspection, review, estimate and payment steps.",
+    "keywords": [
+      "claim process",
+      "next steps"
+    ]
+  },
+  {
+    "title": "Billing & payments",
+    "group": "Manage my policy",
+    "description": "Pay a bill, review payment history or manage automatic payments.",
+    "keywords": [
+      "pay bill",
+      "autopay",
+      "payment"
+    ]
+  },
+  {
+    "title": "Policy documents",
+    "group": "Manage my policy",
+    "description": "View policy forms, declarations and related documents.",
+    "keywords": [
+      "documents",
+      "declarations"
+    ]
+  },
+  {
+    "title": "Proof of insurance",
+    "group": "Manage my policy",
+    "description": "Access or download insurance ID information.",
+    "keywords": [
+      "id card",
+      "insurance card",
+      "proof insurance"
+    ]
+  },
+  {
+    "title": "Roadside assistance",
+    "group": "Manage my policy",
+    "description": "Request help for an eligible disabled vehicle.",
+    "keywords": [
+      "roadside",
+      "tow",
+      "flat tire",
+      "battery"
+    ]
+  },
+  {
+    "title": "Policy changes",
+    "group": "Manage my policy",
+    "description": "Learn how to add a vehicle or update policy information through your agent.",
+    "keywords": [
+      "add vehicle",
+      "replace vehicle",
+      "change address"
+    ]
+  },
+  {
+    "title": "Discounts & savings",
+    "group": "Learn",
+    "description": "Explore potential insurance discounts and bundling options.",
+    "keywords": [
+      "discount",
+      "save",
+      "bundle",
+      "paperless"
+    ]
+  },
+  {
+    "title": "Insurance glossary",
+    "group": "Learn",
+    "description": "Plain-language definitions of common insurance terms.",
+    "keywords": [
+      "deductible",
+      "premium",
+      "endorsement",
+      "exclusion",
+      "limit"
+    ]
+  },
+  {
+    "title": "Find an agent",
+    "group": "Support",
+    "description": "Locate an independent insurance agent.",
+    "keywords": [
+      "agent",
+      "quote",
+      "person",
+      "local"
+    ]
+  }
+]
