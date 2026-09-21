@@ -18,10 +18,10 @@
   </a>
 
   <nav class="desktop-nav" aria-label="Primary">
-    <button class="nav-trigger" data-menu="insurance" aria-expanded="false">Insurance</button>
-    <button class="nav-trigger" data-menu="manage" aria-expanded="false">Manage my policy</button>
-    <button class="nav-trigger" data-menu="claims" aria-expanded="false">Claims & help</button>
-    <button class="nav-trigger" data-menu="learn" aria-expanded="false">Learn</button>
+    <button class="nav-trigger" aria-controls="megaMenu" data-menu="insurance" aria-expanded="false">Insurance</button>
+    <button class="nav-trigger" aria-controls="megaMenu" data-menu="manage" aria-expanded="false">Manage my policy</button>
+    <button class="nav-trigger" aria-controls="megaMenu" data-menu="claims" aria-expanded="false">Claims & help</button>
+    <button class="nav-trigger" aria-controls="megaMenu" data-menu="learn" aria-expanded="false">Learn</button>
   </nav>
 
   <div class="header-actions">
@@ -34,7 +34,7 @@
 <div class="mega-menu" id="megaMenu" hidden></div>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden></nav>
 
-<main id="main">
+<main id="main">\n  <div id="prototypeStatus" class="sr-only" role="status" aria-live="polite"></div>
   <section class="hero">
     <p class="eyebrow">Policy & coverage explorer</p>
     <h1>Start with what you need—not insurance jargon.</h1>
@@ -136,6 +136,15 @@
       <article><strong>Task usability</strong><p>Test real scenarios such as “find what may cover water damage” or “download proof of insurance.”</p></article>
       <article><strong>Accessibility review</strong><p>Validate keyboard navigation, headings, landmarks, menu behavior and mobile information scent.</p></article>
     </div>
+  </section>
+
+  <section class="agent-section" id="agent" aria-labelledby="agentHeading">
+    <div>
+      <p class="eyebrow">Human help remains visible</p>
+      <h2 id="agentHeading">Not sure what you need?</h2>
+      <p>Information architecture should help people self-serve without hiding the path to a knowledgeable person. In a production experience, this destination would connect users to an independent agent or support channel.</p>
+    </div>
+    <button class="agent-button" type="button" data-prototype-action="agent">Find an agent</button>
   </section>
 </main>
 
